@@ -55,7 +55,7 @@ function Index() {
   );
 }
 
-function CTAButton({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+function CTAButton({ className = "" }: { className?: string }) {
   return (
     <a
       href={WHATSAPP_URL}
