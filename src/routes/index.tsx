@@ -376,13 +376,21 @@ function Testimonials() {
               key={t.name}
               className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]"
             >
-              <div className="flex items-center gap-1 text-[var(--gold)]">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
-                ))}
+              <div className="flex items-center gap-3">
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  loading="lazy"
+                  className="h-12 w-12 flex-none rounded-full object-cover ring-2 ring-[var(--teal-soft)]"
+                />
+                <div className="flex items-center gap-1 text-[var(--gold)]">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-current" />
+                  ))}
+                </div>
               </div>
               <p className="mt-4 text-sm leading-relaxed text-foreground">{t.text}</p>
-              <p className="mt-4 text-sm font-semibold text-[var(--teal-dark)]">{t.name}</p>
+              <p className="mt-3 text-sm font-semibold text-[var(--teal-dark)]">{t.name}</p>
             </div>
           ))}
         </div>
