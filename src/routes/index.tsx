@@ -224,23 +224,55 @@ function PackageSection() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 gap-10 lg:grid-cols-5">
-          {/* Package card */}
+        <div className="mt-14 space-y-10">
+          {/* Highlights first */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {highlights.map((h) => (
+              <div
+                key={h.title}
+                className="group relative rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-transform hover:-translate-y-1"
+              >
+                {h.badge && (
+                  <span className="absolute -right-2 -top-2 rounded-full bg-[var(--gold)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[var(--navy-deep)] shadow-md">
+                    {h.badge}
+                  </span>
+                )}
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--teal-soft)] text-[var(--navy)]">
+                  <h.icon className="h-6 w-6" />
+                </div>
+                <h4 className="mt-4 text-lg font-bold text-[var(--navy)]">{h.title}</h4>
+                <p className="mt-1 text-sm text-muted-foreground">{h.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Package summary below */}
           <div
-            className="relative overflow-hidden rounded-3xl p-8 text-white shadow-[var(--shadow-soft)] lg:col-span-2"
+            className="relative overflow-hidden rounded-3xl p-8 text-white shadow-[var(--shadow-soft)]"
             style={{ background: "var(--gradient-package)" }}
           >
             <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
             <div className="absolute -bottom-24 -left-16 h-56 w-56 rounded-full bg-[var(--teal)]/30 blur-2xl" />
 
-            <div className="relative">
-              <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest">
-                Pacote
-              </span>
-              <h3 className="mt-3 text-3xl font-bold">2 a 6 meses</h3>
-              <p className="mt-1 text-sm text-white/80">Calendário essencial do bebê</p>
+            <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center">
+              <div>
+                <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest">
+                  Pacote
+                </span>
+                <h3 className="mt-3 text-3xl font-bold">2 a 6 meses</h3>
+                <p className="mt-1 text-sm text-white/80">Calendário essencial do bebê</p>
 
-              <ul className="mt-6 space-y-4">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy)] transition-transform hover:-translate-y-0.5"
+                >
+                  <MessageCircle className="h-4 w-4" /> Quero contratar o pacote
+                </a>
+              </div>
+
+              <ul className="space-y-4">
                 {doses.map((d) => (
                   <li key={d.name} className="flex items-start gap-3">
                     <span className="mt-1 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-white/15">
@@ -253,63 +285,25 @@ function PackageSection() {
                   </li>
                 ))}
               </ul>
-
-              <div className="mt-8 rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
-                <p className="text-xs text-white/80">A partir de</p>
-                <p className="text-2xl font-bold">Consulte condições</p>
-                <p className="text-xs text-white/70">no WhatsApp da MDC</p>
-              </div>
-
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy)] transition-transform hover:-translate-y-0.5"
-              >
-                <MessageCircle className="h-4 w-4" /> Quero contratar o pacote
-              </a>
             </div>
           </div>
 
-          {/* Highlights */}
-          <div className="lg:col-span-3">
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {highlights.map((h) => (
-                <div
-                  key={h.title}
-                  className="group relative rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-transform hover:-translate-y-1"
-                >
-                  {h.badge && (
-                    <span className="absolute -right-2 -top-2 rounded-full bg-[var(--gold)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[var(--navy-deep)] shadow-md">
-                      {h.badge}
-                    </span>
-                  )}
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--teal-soft)] text-[var(--navy)]">
-                    <h.icon className="h-6 w-6" />
-                  </div>
-                  <h4 className="mt-4 text-lg font-bold text-[var(--navy)]">{h.title}</h4>
-                  <p className="mt-1 text-sm text-muted-foreground">{h.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
-              * Venda do pacote completo mediante disponibilidade e validade das vacinas no
-              mercado. * Verifique com a clínica como personalizar seu pacote. * Verifique as
-              regiões atendidas gratuitamente. * Parcelamento sujeito a análise da operadora.
-            </p>
-          </div>
+          <p className="text-xs leading-relaxed text-muted-foreground">
+            * Venda do pacote completo mediante disponibilidade e validade das vacinas no
+            mercado. * Verifique com a clínica como personalizar seu pacote. * Verifique as
+            regiões atendidas gratuitamente. * Parcelamento sujeito a análise da operadora.
+          </p>
         </div>
-      </div>
+
     </section>
   );
 }
 
 function WhyUs() {
   const stats = [
-    { value: "+ de 2", label: "Anos de experiência" },
-    { value: "+ de 3441", label: "Vidas vacinadas anualmente" },
-    { value: "+ de 23", label: "Empresas atendidas anualmente" },
+    { value: "+ de 10", label: "Anos de experiência" },
+    { value: "+ de 20 mil", label: "Vidas vacinadas anualmente" },
+    { value: "+ de 100", label: "Empresas atendidas anualmente" },
   ];
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
@@ -351,18 +345,22 @@ function Testimonials() {
   const items = [
     {
       name: "@gabrielabordasch",
+      avatar: "https://i.pravatar.cc/120?img=47",
       text: "Nossa experiência com o serviço de atendimento em casa da MDC Vacinas foi incrível. Somos clientes desde o nascimento da nossa primeira filha. Adoramos a qualidade do atendimento e o carinho da equipe. Serviço perfeito. Super recomendo!",
     },
     {
       name: "@clausevanessa",
+      avatar: "https://i.pravatar.cc/120?img=45",
       text: "É tão bom saber que uma empresa oferece um serviço tão cuidadoso e exclusivo com valores justos, aonde podemos receber atendimento dentro da nossa casa. Eu amo o atendimento domiciliar da MDC vacinas!",
     },
     {
       name: "@drarebecamiotto",
+      avatar: "https://i.pravatar.cc/120?img=44",
       text: "Nossa experiência foi sensacional. Nada como poder vacinar nossa filha, tão pequena e frágil, no conforto da nossa casa. Sem custo adicional. Todas as funcionárias muito atenciosas.",
     },
     {
       name: "@marcellosowka",
+      avatar: "https://i.pravatar.cc/120?img=12",
       text: "Somos clientes da MDC há muitos anos. Não precisar sair de casa com o bebê já é uma grande vantagem! As meninas são extremamente atenciosas e experientes. Recomendo!",
     },
   ];
