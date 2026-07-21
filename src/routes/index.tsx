@@ -294,7 +294,7 @@ function PackageSection() {
             regiões atendidas gratuitamente. * Parcelamento sujeito a análise da operadora.
           </p>
         </div>
-
+      </div>
     </section>
   );
 }
