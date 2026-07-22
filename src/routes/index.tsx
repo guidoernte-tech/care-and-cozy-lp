@@ -289,7 +289,7 @@ function PackageSection() {
 function AdvantageCard({ icon: Icon, value, label, desc, featured }: Advantage) {
   if (featured) {
     return (
-      <div className="group relative overflow-hidden rounded-2xl bg-[var(--gold)] p-8 shadow-[var(--shadow-gold)] transition-all duration-500 hover:-translate-y-2">
+      <div className="group relative rounded-2xl bg-[var(--gold)] p-8 shadow-[var(--shadow-gold)] transition-all duration-500 hover:-translate-y-2">
         <div className="absolute right-4 top-4 opacity-20">
           <Icon className="h-12 w-12 text-[var(--navy-deep)]" />
         </div>
