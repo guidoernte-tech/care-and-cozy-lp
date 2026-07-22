@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import heroBaby from "@/assets/hero-baby-home.jpg";
 import logoMDC from "@/assets/logo-mdc.png";
 import clinicFacade from "@/assets/clinic-facade.jpg";
@@ -14,7 +15,10 @@ import {
   TrendingDown,
   Home,
   Star,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
+
 
 const WHATSAPP_URL =
   "https://wa.me/5551998821132?text=Ol%C3%A1%20eu%20gostaria%20de%20fazer%20um%20agendamento!";
@@ -201,13 +205,33 @@ function PackageSection() {
     },
   ];
 
-  const doses = [
-    { name: "Pneumo 20 ou Pneumo 15", detail: "3 doses (2-4-6 meses)" },
-    { name: "Rotavírus Penta", detail: "3 doses (2-4-6 meses)" },
-    { name: "Hexavalente", detail: "3 doses (2-4-6 meses)" },
-    { name: "Meningo ACWY", detail: "2 doses (3-5 meses)" },
-    { name: "Meningo B", detail: "2 doses (3-5 meses)" },
+  const packages = [
+    {
+      title: "2 a 6 meses",
+      subtitle: "Calendário essencial do bebê",
+      doses: [
+        { name: "Pneumo 20 ou Pneumo 15", detail: "3 doses" },
+        { name: "Rotavírus Penta", detail: "3 doses" },
+        { name: "Hexavalente", detail: "3 doses" },
+        { name: "Meningo ACWY", detail: "2 doses" },
+        { name: "Meningo B", detail: "2 doses" },
+      ],
+    },
+    {
+      title: "12 a 24 meses",
+      subtitle: "Calendário essencial do bebê",
+      doses: [
+        { name: "Pneumo 20 ou Pneumo 15", detail: "1 dose" },
+        { name: "Meningo B", detail: "1 dose" },
+        { name: "Meningo ACWY", detail: "1 dose" },
+        { name: "Pentavalente", detail: "1 dose" },
+        { name: "Hepatite A INF", detail: "1 dose" },
+        { name: "Tríplice Viral", detail: "2 doses" },
+        { name: "Varicela", detail: "2 doses" },
+      ],
+    },
   ];
+
 
   return (
     <section className="relative bg-[var(--teal-soft)]/40 py-20">
@@ -246,53 +270,16 @@ function PackageSection() {
             ))}
           </div>
 
-          {/* Package summary below */}
-          <div
-            className="relative overflow-hidden rounded-3xl p-8 text-white shadow-[var(--shadow-soft)]"
-            style={{ background: "var(--gradient-package)" }}
-          >
-            <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
-            <div className="absolute -bottom-24 -left-16 h-56 w-56 rounded-full bg-[var(--teal)]/30 blur-2xl" />
-
-            <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center">
-              <div>
-                <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest">
-                  Pacote
-                </span>
-                <h3 className="mt-3 text-3xl font-bold">2 a 6 meses</h3>
-                <p className="mt-1 text-sm text-white/80">Calendário essencial do bebê</p>
-
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy)] transition-transform hover:-translate-y-0.5"
-                >
-                  <MessageCircle className="h-4 w-4" /> Quero contratar o pacote
-                </a>
-              </div>
-
-              <ul className="space-y-4">
-                {doses.map((d) => (
-                  <li key={d.name} className="flex items-start gap-3">
-                    <span className="mt-1 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-white/15">
-                      <ShieldCheck className="h-3.5 w-3.5" />
-                    </span>
-                    <div>
-                      <p className="font-semibold">{d.name}</p>
-                      <p className="text-sm text-white/75">{d.detail}</p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          {/* Package carousel */}
+          <PackageCarousel packages={packages} />
 
           <p className="text-xs leading-relaxed text-muted-foreground">
             * Venda do pacote completo mediante disponibilidade e validade das vacinas no
             mercado. * Verifique com a clínica como personalizar seu pacote. * Verifique as
-            regiões atendidas gratuitamente. * Parcelamento sujeito a análise da operadora.
+            regiões atendidas gratuitamente. * Confira as condições do parcelamento até 21x
+            com nossa equipe.
           </p>
+
         </div>
       </div>
     </section>
@@ -345,23 +332,26 @@ function Testimonials() {
   const items = [
     {
       name: "@gabrielabordasch",
-      avatar: "https://i.pravatar.cc/120?img=47",
-      text: "Nossa experiência com o serviço de atendimento em casa da MDC Vacinas foi incrível. Somos clientes desde o nascimento da nossa primeira filha. Adoramos a qualidade do atendimento e o carinho da equipe. Serviço perfeito. Super recomendo!",
+      avatar:
+        "https://mdcvacinas.com.br/wp-content/uploads/2022/11/188047733_146355437472106_4760731370720499386_n.jpg",
+      text: "Nossa experiência com o serviço de atendimento em casa da MDC Vacinas foi incrível. Somos clientes da MDC desde o nascimento da nossa primeira filha. Fizemos todas as vacinas lá. Adoramos a qualidade do atendimento e o carinho da equipe. Poder fazer as vacinas em casa só agregar ainda mais o que já era excelente. Não precisar pegar trânsito, pagar estacionamento, função de tirar as crianças do carro e tudo mais facilita e muito a vida das famílias. E o melhor de tudo, não tem taxa extra pra isso. Serviço perfeito. Super recomendo!",
     },
     {
       name: "@clausevanessa",
-      avatar: "https://i.pravatar.cc/120?img=45",
-      text: "É tão bom saber que uma empresa oferece um serviço tão cuidadoso e exclusivo com valores justos, aonde podemos receber atendimento dentro da nossa casa. Eu amo o atendimento domiciliar da MDC vacinas!",
+      avatar:
+        "https://mdcvacinas.com.br/wp-content/uploads/2022/11/273915568_323318373076494_2434003820495313128_n.jpg",
+      text: "É tão bom saber que uma empresa oferece um serviço tão cuidadoso e exclusivo com valores justos de mercado aonde podemos receber atendimento dentro da nossa casa um lugar aonde a gente confia, se sente seguro e confortável Além de outras vantagens como não precisar pegar trânsito não pagar estacionamento e não correr riscos eu amo o atendimento domiciliar da MDC vacinas!",
     },
     {
       name: "@drarebecamiotto",
-      avatar: "https://i.pravatar.cc/120?img=44",
-      text: "Nossa experiência foi sensacional. Nada como poder vacinar nossa filha, tão pequena e frágil, no conforto da nossa casa. Sem custo adicional. Todas as funcionárias muito atenciosas.",
+      avatar:
+        "https://mdcvacinas.com.br/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-20-at-09.44.50.jpeg",
+      text: "Nossa experiência com MDC vacinas foi sensacional. Nada como poder vacinar nossa filha, tão pequena e frágil, no conforto da nossa casa, em um local que ela sente mais segurança. O fato de não ter que sair de casa com um recém nascido, pegar trânsito, ficar em sala de espera é o que faz toda diferença. Além disso, sem custo adicional. Todas as funcionárias sempre muito solicitas e competentes, tratando nossa pequena com muito carinho. Nosso muito obrigada a toda equipe do MDC vacinas.",
     },
     {
       name: "@marcellosowka",
-      avatar: "https://i.pravatar.cc/120?img=12",
-      text: "Somos clientes da MDC há muitos anos. Não precisar sair de casa com o bebê já é uma grande vantagem! As meninas são extremamente atenciosas e experientes. Recomendo!",
+      avatar: "https://mdcvacinas.com.br/wp-content/uploads/2022/12/Marcello-Sowka.jpg",
+      text: "Somos clientes da MDC Vacinas há muitos anos, e quando nosso filho nasceu não tivemos dúvidas em chamá-los para vacinar nosso filho em casa. Não precisar sair de casa com o bebê, pegar transito, pagar estacionamento e sair com mochila, carrinho e etc já é uma grande vantagem! Além disso as meninas são extremamente atenciosas e experientes. Fazer a vacina em casa, no quarto do nosso filho com certeza o deixou mais calmo! Recomendo!",
     },
   ];
   return (
@@ -376,21 +366,23 @@ function Testimonials() {
               key={t.name}
               className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]"
             >
-              <div className="flex items-center gap-3">
+              <p className="text-sm leading-relaxed text-foreground">{t.text}</p>
+              <div className="mt-5 flex items-center gap-3">
                 <img
                   src={t.avatar}
                   alt={t.name}
                   loading="lazy"
                   className="h-12 w-12 flex-none rounded-full object-cover ring-2 ring-[var(--teal-soft)]"
                 />
-                <div className="flex items-center gap-1 text-[var(--gold)]">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
-                  ))}
+                <div>
+                  <p className="text-sm font-semibold text-[var(--teal-dark)]">{t.name}</p>
+                  <div className="mt-0.5 flex items-center gap-0.5 text-[var(--gold)]">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-current" />
+                    ))}
+                  </div>
                 </div>
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-foreground">{t.text}</p>
-              <p className="mt-3 text-sm font-semibold text-[var(--teal-dark)]">{t.name}</p>
             </div>
           ))}
         </div>
@@ -406,7 +398,7 @@ function FAQ() {
   const faqs = [
     {
       q: "A MDC atende em quais locais?",
-      a: "Atendemos atualmente em Porto Alegre e grande Porto Alegre sem custo de deslocamento dependendo do raio de distância em quilômetros. Confira no nosso WhatsApp se sua região é de deslocamento gratuito!",
+      a: "Atendemos atualmente em Porto Alegre, grande Porto Alegre e região do Vale dos Sinos sem custo de deslocamento dependendo do raio de distância. Confira no nosso WhatsApp se sua região é atendida!",
     },
     {
       q: "As vacinas são apenas para crianças?",
@@ -421,6 +413,7 @@ function FAQ() {
       a: "Aceitamos cartão de crédito com parcelamento em até 21x, dinheiro e PIX com 15% de desconto.",
     },
   ];
+
   return (
     <section className="mx-auto max-w-4xl px-6 py-20">
       <h2 className="text-center text-3xl font-bold text-[var(--navy)] md:text-4xl">
@@ -462,3 +455,117 @@ function Footer() {
     </footer>
   );
 }
+
+type Pkg = {
+  title: string;
+  subtitle: string;
+  doses: { name: string; detail: string }[];
+};
+
+function PackageCarousel({ packages }: { packages: Pkg[] }) {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % packages.length);
+    }, 3000);
+    return () => clearInterval(id);
+  }, [paused, packages.length]);
+
+  const go = (dir: number) =>
+    setIndex((i) => (i + dir + packages.length) % packages.length);
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="overflow-hidden rounded-3xl">
+        <div
+          className="flex transition-transform duration-700 ease-out"
+          style={{ transform: `translateX(-${index * 100}%)` }}
+        >
+          {packages.map((p) => (
+            <div key={p.title} className="w-full flex-none">
+              <div
+                className="relative overflow-hidden rounded-3xl p-8 text-white shadow-[var(--shadow-soft)]"
+                style={{ background: "var(--gradient-package)" }}
+              >
+                <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
+                <div className="absolute -bottom-24 -left-16 h-56 w-56 rounded-full bg-[var(--teal)]/30 blur-2xl" />
+
+                <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center">
+                  <div>
+                    <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest">
+                      Pacote
+                    </span>
+                    <h3 className="mt-3 text-3xl font-bold">{p.title}</h3>
+                    <p className="mt-1 text-sm text-white/80">{p.subtitle}</p>
+
+                    <a
+                      href={WHATSAPP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy)] transition-transform hover:-translate-y-0.5"
+                    >
+                      <MessageCircle className="h-4 w-4" /> Quero contratar o pacote
+                    </a>
+                  </div>
+
+                  <ul className="space-y-4">
+                    {p.doses.map((d) => (
+                      <li key={d.name} className="flex items-start gap-3">
+                        <span className="mt-1 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-white/15">
+                          <ShieldCheck className="h-3.5 w-3.5" />
+                        </span>
+                        <div>
+                          <p className="font-semibold">{d.name}</p>
+                          <p className="text-sm text-white/75">{d.detail}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button
+        type="button"
+        aria-label="Pacote anterior"
+        onClick={() => go(-1)}
+        className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-[var(--navy)] shadow-md transition hover:bg-white"
+      >
+        <ChevronLeft className="h-5 w-5" />
+      </button>
+      <button
+        type="button"
+        aria-label="Próximo pacote"
+        onClick={() => go(1)}
+        className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-[var(--navy)] shadow-md transition hover:bg-white"
+      >
+        <ChevronRight className="h-5 w-5" />
+      </button>
+
+      <div className="mt-4 flex justify-center gap-2">
+        {packages.map((p, i) => (
+          <button
+            key={p.title}
+            type="button"
+            aria-label={`Ir para pacote ${p.title}`}
+            onClick={() => setIndex(i)}
+            className={`h-2 rounded-full transition-all ${
+              i === index ? "w-8 bg-[var(--navy)]" : "w-2 bg-[var(--navy)]/30"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
