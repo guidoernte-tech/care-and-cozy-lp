@@ -170,51 +170,37 @@ function HowItWorks() {
   );
 }
 
-type Advantage = {
-  icon: React.ElementType;
-  value: string;
-  label: string;
-  desc: string;
-  featured?: boolean;
-};
-
 function PackageSection() {
-  const advantages: Advantage[] = [
+  const highlights = [
     {
       icon: Percent,
-      value: "12%",
-      label: "de desconto",
+      title: "12% de desconto",
       desc: "No pacote vacinal pediátrico completo.",
+      badge: "NOVO",
     },
     {
       icon: CreditCard,
-      value: "21x",
-      label: "parcelamento",
+      title: "Parcele em até 21x*",
       desc: "Condições facilitadas para caber no seu orçamento.",
     },
     {
       icon: TrendingDown,
-      value: "15%",
-      label: "OFF no PIX",
+      title: "15% OFF no PIX",
       desc: "Pagamento à vista com o maior desconto do mercado.",
-      featured: true,
     },
     {
       icon: Lock,
-      value: "Reserva",
-      label: "de todas as doses",
+      title: "Reserva de todas as doses",
       desc: "Garantia da disponibilidade completa do calendário.",
     },
     {
       icon: ShieldCheck,
-      value: "Fixos",
-      label: "sem reajuste",
+      title: "Sem reajuste de valores",
       desc: "Preço travado durante todo o período do pacote.",
     },
     {
       icon: Home,
-      value: "Em casa",
-      label: "sem taxa extra",
+      title: "Vamos até sua casa de graça*",
       desc: "Atendimento domiciliar sem taxa nas regiões atendidas.",
     },
   ];
@@ -247,84 +233,55 @@ function PackageSection() {
   ];
 
   return (
-    <section className="relative bg-[var(--navy-deep)] py-24">
-      <div className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-[var(--gold)]/5 blur-3xl" />
-      <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-[var(--teal)]/5 blur-3xl" />
-
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="mb-16 text-center">
-          <span className="mb-4 inline-block text-xs font-semibold uppercase tracking-[0.3em] text-[var(--gold)]">
-            Vantagens Exclusivas
+    <section className="relative bg-[var(--teal-soft)]/40 py-20">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="text-center">
+          <span className="inline-block rounded-full bg-[var(--teal)] px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white">
+            Vantagens
           </span>
-          <h2 className="font-display text-4xl leading-tight text-white md:text-5xl lg:text-6xl">
+          <h2 className="mt-4 text-4xl font-bold text-[var(--navy)] md:text-5xl">
             Pacote Vacinal Pediátrico
           </h2>
-          <div className="mx-auto mt-6 h-1 w-24 rounded-full bg-[var(--gold)]" />
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-white/70">
+          <p className="mt-3 text-lg text-muted-foreground">
             Melhores condições do mercado, do começo ao fim do calendário do seu bebê.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {advantages.map((a) => (
-            <AdvantageCard key={a.label} {...a} />
-          ))}
-        </div>
+        <div className="mt-14 space-y-10">
+          {/* Highlights first */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {highlights.map((h) => (
+              <div
+                key={h.title}
+                className="group relative rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-transform hover:-translate-y-1"
+              >
+                {h.badge && (
+                  <span className="absolute -right-2 -top-2 rounded-full bg-[var(--gold)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[var(--navy-deep)] shadow-md">
+                    {h.badge}
+                  </span>
+                )}
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--teal-soft)] text-[var(--navy)]">
+                  <h.icon className="h-6 w-6" />
+                </div>
+                <h4 className="mt-4 text-lg font-bold text-[var(--navy)]">{h.title}</h4>
+                <p className="mt-1 text-sm text-muted-foreground">{h.desc}</p>
+              </div>
+            ))}
+          </div>
 
-        <div className="mt-16">
+          {/* Package carousel */}
           <PackageCarousel packages={packages} />
-        </div>
 
-        <p className="mt-12 text-xs leading-relaxed text-white/50">
-          * Venda do pacote completo mediante disponibilidade e validade das vacinas no
-          mercado. * Verifique com a clínica como personalizar seu pacote. * Verifique as
-          regiões atendidas gratuitamente. * Confira as condições do parcelamento até 21x
-          com nossa equipe.
-        </p>
+          <p className="text-xs leading-relaxed text-muted-foreground">
+            * Venda do pacote completo mediante disponibilidade e validade das vacinas no
+            mercado. * Verifique com a clínica como personalizar seu pacote. * Verifique as
+            regiões atendidas gratuitamente. * Confira as condições do parcelamento até 21x
+            com nossa equipe.
+          </p>
+
+        </div>
       </div>
     </section>
-  );
-}
-
-function AdvantageCard({ icon: Icon, value, label, desc, featured }: Advantage) {
-  if (featured) {
-    return (
-      <div className="group relative rounded-2xl bg-[var(--gold)] p-8 shadow-[var(--shadow-gold)] transition-all duration-500 hover:-translate-y-2">
-        <div className="absolute right-4 top-4 opacity-20">
-          <Icon className="h-12 w-12 text-[var(--navy-deep)]" />
-        </div>
-        <span className="absolute -top-3 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-full bg-[var(--navy-deep)] px-3 py-1 text-[10px] font-bold uppercase tracking-tighter text-[var(--gold)]">
-          Melhor Oferta
-        </span>
-        <div className="relative z-10 pt-3">
-          <span className="font-display block text-5xl text-[var(--navy-deep)]">
-            {value}
-          </span>
-          <p className="font-body mt-2 text-sm font-semibold uppercase tracking-wider text-[var(--navy-deep)]">
-            {label}
-          </p>
-          <p className="mt-2 text-sm text-[var(--navy-deep)]/80">{desc}</p>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div
-      className="group relative overflow-hidden rounded-2xl border border-[var(--gold)]/20 p-8 transition-all duration-500 hover:-translate-y-2 hover:border-[var(--gold)] hover:shadow-[var(--shadow-gold)]"
-      style={{ background: "var(--gradient-advantages-card)" }}
-    >
-      <div className="absolute right-0 top-0 p-4 opacity-10 transition-opacity group-hover:opacity-20">
-        <Icon className="h-12 w-12 text-[var(--gold)]" />
-      </div>
-      <div className="relative z-10">
-        <span className="font-display block text-5xl text-[var(--gold)]">{value}</span>
-        <p className="font-body mt-2 text-sm font-light uppercase tracking-wider text-white/90">
-          {label}
-        </p>
-        <p className="mt-2 text-sm text-white/60">{desc}</p>
-      </div>
-    </div>
   );
 }
 
