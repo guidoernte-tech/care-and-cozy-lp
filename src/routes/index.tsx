@@ -175,7 +175,7 @@ function PackageSection() {
     {
       icon: Percent,
       title: "12% de desconto",
-      desc: "No pacote vacinal pediátrico completo.",
+      desc: "Nos pacotes vacinais. Verifique com nossa equipe possíveis personalização.",
       badge: "NOVO",
     },
     {
@@ -253,7 +253,7 @@ function PackageSection() {
             {highlights.map((h) => (
               <div
                 key={h.title}
-                className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
+                className="group relative rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
               >
                 <div className="absolute left-0 top-0 h-1 w-full bg-[var(--teal)]" />
                 {h.badge && (
