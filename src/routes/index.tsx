@@ -211,7 +211,7 @@ function PackageSection() {
   const packages = [
     {
       title: "2 a 6 meses",
-      subtitle: "Calendário essencial do bebê",
+      subtitle: "Calendário vacinal do bebê",
       doses: [
         { name: "Pneumo 20 ou Pneumo 15", detail: "3 doses" },
         { name: "Rotavírus Penta", detail: "3 doses" },
@@ -222,7 +222,7 @@ function PackageSection() {
     },
     {
       title: "12 a 24 meses",
-      subtitle: "Calendário essencial do bebê",
+      subtitle: "Calendário vacinal do bebê",
       doses: [
         { name: "Pneumo 20 ou Pneumo 15", detail: "1 dose" },
         { name: "Meningo B", detail: "1 dose" },
@@ -306,7 +306,7 @@ function WhyUs() {
           </h2>
           <p className="mt-4 text-muted-foreground">
             Anos de experiência cuidando de famílias com carinho, segurança e o padrão técnico
-            que sua saúde merece.
+            que sua família merece.
           </p>
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
             {stats.map((s) => (
