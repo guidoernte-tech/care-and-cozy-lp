@@ -236,7 +236,7 @@ function PackageSection() {
   ];
 
   return (
-    <section className="relative bg-[var(--teal-soft)]/40 py-20">
+    <section className="relative bg-[var(--teal-soft)]/40 py-14">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center">
           <span className="inline-block rounded-full bg-[var(--teal)] px-4 py-1 text-xs font-semibold uppercase tracking-widest text-white">
@@ -298,7 +298,7 @@ function WhyUs() {
     { value: "+ de 100", label: "Empresas atendidas anualmente" },
   ];
   return (
-    <section className="mx-auto max-w-7xl px-6 py-20">
+    <section className="mx-auto max-w-7xl px-6 py-14">
       <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
         <div>
           <h2 className="text-4xl font-bold text-[var(--navy)] md:text-5xl">
@@ -360,7 +360,7 @@ function Testimonials() {
     },
   ];
   return (
-    <section className="bg-[var(--teal-soft)]/40 py-20">
+    <section className="bg-[var(--teal-soft)]/40 py-14">
       <div className="mx-auto max-w-7xl px-6">
         <h2 className="text-center text-4xl font-bold text-[var(--navy)] md:text-5xl">
           Famílias que confiam na MDC
@@ -420,7 +420,7 @@ function FAQ() {
   ];
 
   return (
-    <section className="mx-auto max-w-4xl px-6 py-20">
+    <section className="mx-auto max-w-4xl px-6 py-14">
       <h2 className="text-center text-3xl font-bold text-[var(--navy)] md:text-4xl">
         Dúvidas Frequentes
       </h2>
