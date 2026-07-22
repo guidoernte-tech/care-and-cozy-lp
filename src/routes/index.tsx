@@ -455,3 +455,117 @@ function Footer() {
     </footer>
   );
 }
+
+type Pkg = {
+  title: string;
+  subtitle: string;
+  doses: { name: string; detail: string }[];
+};
+
+function PackageCarousel({ packages }: { packages: Pkg[] }) {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % packages.length);
+    }, 3000);
+    return () => clearInterval(id);
+  }, [paused, packages.length]);
+
+  const go = (dir: number) =>
+    setIndex((i) => (i + dir + packages.length) % packages.length);
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <div className="overflow-hidden rounded-3xl">
+        <div
+          className="flex transition-transform duration-700 ease-out"
+          style={{ transform: `translateX(-${index * 100}%)` }}
+        >
+          {packages.map((p) => (
+            <div key={p.title} className="w-full flex-none">
+              <div
+                className="relative overflow-hidden rounded-3xl p-8 text-white shadow-[var(--shadow-soft)]"
+                style={{ background: "var(--gradient-package)" }}
+              >
+                <div className="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-white/10 blur-2xl" />
+                <div className="absolute -bottom-24 -left-16 h-56 w-56 rounded-full bg-[var(--teal)]/30 blur-2xl" />
+
+                <div className="relative grid grid-cols-1 gap-8 lg:grid-cols-2 lg:items-center">
+                  <div>
+                    <span className="inline-block rounded-full bg-white/15 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest">
+                      Pacote
+                    </span>
+                    <h3 className="mt-3 text-3xl font-bold">{p.title}</h3>
+                    <p className="mt-1 text-sm text-white/80">{p.subtitle}</p>
+
+                    <a
+                      href={WHATSAPP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy)] transition-transform hover:-translate-y-0.5"
+                    >
+                      <MessageCircle className="h-4 w-4" /> Quero contratar o pacote
+                    </a>
+                  </div>
+
+                  <ul className="space-y-4">
+                    {p.doses.map((d) => (
+                      <li key={d.name} className="flex items-start gap-3">
+                        <span className="mt-1 flex h-6 w-6 flex-none items-center justify-center rounded-full bg-white/15">
+                          <ShieldCheck className="h-3.5 w-3.5" />
+                        </span>
+                        <div>
+                          <p className="font-semibold">{d.name}</p>
+                          <p className="text-sm text-white/75">{d.detail}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button
+        type="button"
+        aria-label="Pacote anterior"
+        onClick={() => go(-1)}
+        className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-[var(--navy)] shadow-md transition hover:bg-white"
+      >
+        <ChevronLeft className="h-5 w-5" />
+      </button>
+      <button
+        type="button"
+        aria-label="Próximo pacote"
+        onClick={() => go(1)}
+        className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/90 p-2 text-[var(--navy)] shadow-md transition hover:bg-white"
+      >
+        <ChevronRight className="h-5 w-5" />
+      </button>
+
+      <div className="mt-4 flex justify-center gap-2">
+        {packages.map((p, i) => (
+          <button
+            key={p.title}
+            type="button"
+            aria-label={`Ir para pacote ${p.title}`}
+            onClick={() => setIndex(i)}
+            className={`h-2 rounded-full transition-all ${
+              i === index ? "w-8 bg-[var(--navy)]" : "w-2 bg-[var(--navy)]/30"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
