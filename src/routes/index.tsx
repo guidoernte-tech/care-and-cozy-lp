@@ -247,7 +247,7 @@ function PackageSection() {
   ];
 
   return (
-    <section className="relative overflow-hidden bg-[var(--navy-deep)] py-24">
+    <section className="relative bg-[var(--navy-deep)] py-24">
       <div className="pointer-events-none absolute -left-32 top-0 h-96 w-96 rounded-full bg-[var(--gold)]/5 blur-3xl" />
       <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-[var(--teal)]/5 blur-3xl" />
 
