@@ -120,14 +120,14 @@ function Hero() {
 
 function HowItWorks() {
   const steps = [
-    { icon: MessageCircle, text: "Entre em contato pelo nosso WhatsApp" },
-    { icon: MapPin, text: "Confira sua região e prepare a carteirinha" },
-    { icon: CalendarCheck, text: "Realize seu agendamento sem complicações" },
-    { icon: Users, text: "Aguarde nossa equipe no horário marcado" },
+    { icon: MessageCircleHeart, text: "Entre em contato pelo nosso WhatsApp" },
+    { icon: MapPinned, text: "Confira sua região e prepare a carteirinha" },
+    { icon: CalendarHeart, text: "Realize seu agendamento sem complicações" },
+    { icon: Stethoscope, text: "Aguarde nossa equipe no horário marcado" },
   ];
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-16">
+    <section className="mx-auto max-w-7xl px-6 py-12">
       <h2 className="mx-auto max-w-3xl text-center text-3xl font-bold text-[var(--navy)] md:text-4xl">
         É difícil sair de casa com o bebê, mochila e carrinho? Pegar trânsito e pagar
         estacionamento?
@@ -136,26 +136,33 @@ function HowItWorks() {
         Nós vamos até você!
       </p>
 
-      <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {steps.map((s, i) => (
           <div
             key={i}
-            className="flex flex-col items-center rounded-2xl border border-border bg-card p-8 text-center shadow-[var(--shadow-card)] transition-transform hover:-translate-y-1"
+            className="group relative flex flex-col items-center overflow-hidden rounded-2xl border border-border bg-card p-8 text-center shadow-[var(--shadow-card)] transition-all hover:-translate-y-1.5 hover:shadow-[var(--shadow-soft)]"
           >
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--teal-soft)] text-[var(--navy)]">
-              <s.icon className="h-8 w-8" />
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-[var(--teal-soft)] opacity-60 transition-transform duration-500 group-hover:scale-150"
+            />
+            <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--teal)] to-[var(--navy)] text-white shadow-lg transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
+              <s.icon className="h-8 w-8" strokeWidth={1.75} />
+              <span className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-white text-[var(--teal)] shadow ring-1 ring-[var(--teal-soft)]">
+                <HeartPulse className="h-3.5 w-3.5" />
+              </span>
             </div>
-            <p className="mt-5 text-sm font-medium text-foreground">{s.text}</p>
+            <p className="relative mt-5 text-sm font-medium text-foreground">{s.text}</p>
           </div>
         ))}
       </div>
 
-      <p className="mx-auto mt-12 max-w-3xl text-center text-lg text-muted-foreground">
+      <p className="mx-auto mt-10 max-w-3xl text-center text-lg text-muted-foreground">
         Com nosso atendimento facilitado, você economiza tempo e dinheiro, e vacina no
         conforto de casa.
       </p>
 
-      <div className="mt-8 flex justify-center">
+      <div className="mt-6 flex justify-center">
         <CTAButton />
       </div>
 
