@@ -410,7 +410,7 @@ function FAQ() {
     },
     {
       q: "Quais meios de pagamento são aceitos?",
-      a: "Aceitamos cartão de crédito com parcelamento em até 21x, dinheiro e PIX com 15% de desconto.",
+      a: "Aceitamos cartão de crédito com parcelamento em até 21x, dinheiro e PIX com 15% de desconto nos pacotes vacinais.",
     },
   ];
 
