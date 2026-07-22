@@ -293,7 +293,7 @@ function AdvantageCard({ icon: Icon, value, label, desc, featured }: Advantage) 
         <div className="absolute right-4 top-4 opacity-20">
           <Icon className="h-12 w-12 text-[var(--navy-deep)]" />
         </div>
-        <span className="absolute -top-3 left-6 rounded-full bg-[var(--navy-deep)] px-3 py-1 text-[10px] font-bold uppercase tracking-tighter text-[var(--gold)]">
+        <span className="absolute -top-3 left-1/2 z-20 -translate-x-1/2 whitespace-nowrap rounded-full bg-[var(--navy-deep)] px-3 py-1 text-[10px] font-bold uppercase tracking-tighter text-[var(--gold)]">
           Melhor Oferta
         </span>
         <div className="relative z-10 pt-3">
