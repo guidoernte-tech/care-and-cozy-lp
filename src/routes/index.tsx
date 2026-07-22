@@ -205,13 +205,33 @@ function PackageSection() {
     },
   ];
 
-  const doses = [
-    { name: "Pneumo 20 ou Pneumo 15", detail: "3 doses (2-4-6 meses)" },
-    { name: "Rotavírus Penta", detail: "3 doses (2-4-6 meses)" },
-    { name: "Hexavalente", detail: "3 doses (2-4-6 meses)" },
-    { name: "Meningo ACWY", detail: "2 doses (3-5 meses)" },
-    { name: "Meningo B", detail: "2 doses (3-5 meses)" },
+  const packages = [
+    {
+      title: "2 a 6 meses",
+      subtitle: "Calendário essencial do bebê",
+      doses: [
+        { name: "Pneumo 20 ou Pneumo 15", detail: "3 doses" },
+        { name: "Rotavírus Penta", detail: "3 doses" },
+        { name: "Hexavalente", detail: "3 doses" },
+        { name: "Meningo ACWY", detail: "2 doses" },
+        { name: "Meningo B", detail: "2 doses" },
+      ],
+    },
+    {
+      title: "12 a 24 meses",
+      subtitle: "Calendário essencial do bebê",
+      doses: [
+        { name: "Pneumo 20 ou Pneumo 15", detail: "1 dose" },
+        { name: "Meningo B", detail: "1 dose" },
+        { name: "Meningo ACWY", detail: "1 dose" },
+        { name: "Pentavalente", detail: "1 dose" },
+        { name: "Hepatite A INF", detail: "1 dose" },
+        { name: "Tríplice Viral", detail: "2 doses" },
+        { name: "Varicela", detail: "2 doses" },
+      ],
+    },
   ];
+
 
   return (
     <section className="relative bg-[var(--teal-soft)]/40 py-20">
