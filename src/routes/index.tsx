@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import heroBaby from "@/assets/hero-baby-home.jpg";
 import logoMDC from "@/assets/logo-mdc.png";
 import clinicFacade from "@/assets/clinic-facade.jpg";
@@ -14,7 +15,10 @@ import {
   TrendingDown,
   Home,
   Star,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
+
 
 const WHATSAPP_URL =
   "https://wa.me/5551998821132?text=Ol%C3%A1%20eu%20gostaria%20de%20fazer%20um%20agendamento!";
