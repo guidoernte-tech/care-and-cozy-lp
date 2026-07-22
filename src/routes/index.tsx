@@ -514,7 +514,7 @@ function PackageCarousel({ packages }: { packages: Pkg[] }) {
                       rel="noopener noreferrer"
                       className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold uppercase tracking-wide text-[var(--navy)] transition-transform hover:-translate-y-0.5"
                     >
-                      <MessageCircle className="h-4 w-4" /> Quero contratar o pacote
+                      <MessageCircleHeart className="h-4 w-4" /> Quero contratar o pacote
                     </a>
                   </div>
 
