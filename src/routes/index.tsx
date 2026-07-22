@@ -80,32 +80,27 @@ function Hero() {
       className="relative overflow-hidden"
       style={{ background: "var(--gradient-hero)" }}
     >
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-6 pb-24 pt-10 lg:grid-cols-2 lg:pb-32 lg:pt-16">
-        <div className="text-white">
-          <img src={logoMDC} alt="MDC Vacinas" className="mb-10 w-56 md:w-64" />
-          <h1 className="text-4xl font-bold leading-tight md:text-5xl">
-            Vacine-se em casa com as{" "}
-            <span className="text-[var(--navy)]">MELHORES</span> condições do mercado
-          </h1>
-          <p className="mt-6 max-w-md text-lg text-white/90">
-            Consulte as regiões atendidas e aguarde no conforto do seu lar.
-          </p>
-          <div className="mt-8">
-            <CTAButton />
-          </div>
+      <div className="mx-auto flex max-w-3xl flex-col items-center gap-6 px-6 pb-16 pt-10 text-center lg:pb-20 lg:pt-14">
+        <img src={logoMDC} alt="MDC Vacinas" className="w-48 md:w-56" />
+        <h1 className="text-4xl font-bold leading-tight text-white md:text-5xl">
+          Vacine-se em casa com as{" "}
+          <span className="text-[var(--navy)]">MELHORES</span> condições do mercado
+        </h1>
+        <p className="max-w-md text-lg text-white/90">
+          Consulte as regiões atendidas e aguarde no conforto do seu lar.
+        </p>
+
+        <div className="w-full overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/20">
+          <img
+            src={heroBaby}
+            alt="Bebê sendo vacinado no conforto do lar"
+            width={1600}
+            height={1200}
+            className="h-full w-full object-cover"
+          />
         </div>
 
-        <div className="relative">
-          <div className="overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/20">
-            <img
-              src={heroBaby}
-              alt="Bebê sendo vacinado no conforto do lar"
-              width={1600}
-              height={1200}
-              className="h-full w-full object-cover"
-            />
-          </div>
-        </div>
+        <CTAButton />
       </div>
 
       <svg
