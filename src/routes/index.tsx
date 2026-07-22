@@ -249,22 +249,25 @@ function PackageSection() {
 
         <div className="mt-14 space-y-10">
           {/* Highlights first */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {highlights.map((h) => (
               <div
                 key={h.title}
-                className="group relative rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-transform hover:-translate-y-1"
+                className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)] transition-all hover:-translate-y-1 hover:shadow-[var(--shadow-soft)]"
               >
+                <div className="absolute left-0 top-0 h-1 w-full bg-[var(--teal)]" />
                 {h.badge && (
                   <span className="absolute -right-2 -top-2 rounded-full bg-[var(--gold)] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[var(--navy-deep)] shadow-md">
                     {h.badge}
                   </span>
                 )}
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[var(--teal-soft)] text-[var(--navy)]">
-                  <h.icon className="h-6 w-6" />
+                <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[var(--teal-soft)] text-[var(--navy)] transition-colors group-hover:bg-[var(--teal)] group-hover:text-white">
+                  <h.icon className="h-7 w-7" />
                 </div>
-                <h4 className="mt-4 text-lg font-bold text-[var(--navy)]">{h.title}</h4>
-                <p className="mt-1 text-sm text-muted-foreground">{h.desc}</p>
+                <h4 className="font-display mt-5 text-2xl text-[var(--navy)] md:text-3xl">
+                  {h.title}
+                </h4>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{h.desc}</p>
               </div>
             ))}
           </div>
