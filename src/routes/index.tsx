@@ -332,23 +332,26 @@ function Testimonials() {
   const items = [
     {
       name: "@gabrielabordasch",
-      avatar: "https://i.pravatar.cc/120?img=47",
-      text: "Nossa experiência com o serviço de atendimento em casa da MDC Vacinas foi incrível. Somos clientes desde o nascimento da nossa primeira filha. Adoramos a qualidade do atendimento e o carinho da equipe. Serviço perfeito. Super recomendo!",
+      avatar:
+        "https://mdcvacinas.com.br/wp-content/uploads/2022/11/188047733_146355437472106_4760731370720499386_n.jpg",
+      text: "Nossa experiência com o serviço de atendimento em casa da MDC Vacinas foi incrível. Somos clientes da MDC desde o nascimento da nossa primeira filha. Fizemos todas as vacinas lá. Adoramos a qualidade do atendimento e o carinho da equipe. Poder fazer as vacinas em casa só agregar ainda mais o que já era excelente. Não precisar pegar trânsito, pagar estacionamento, função de tirar as crianças do carro e tudo mais facilita e muito a vida das famílias. E o melhor de tudo, não tem taxa extra pra isso. Serviço perfeito. Super recomendo!",
     },
     {
       name: "@clausevanessa",
-      avatar: "https://i.pravatar.cc/120?img=45",
-      text: "É tão bom saber que uma empresa oferece um serviço tão cuidadoso e exclusivo com valores justos, aonde podemos receber atendimento dentro da nossa casa. Eu amo o atendimento domiciliar da MDC vacinas!",
+      avatar:
+        "https://mdcvacinas.com.br/wp-content/uploads/2022/11/273915568_323318373076494_2434003820495313128_n.jpg",
+      text: "É tão bom saber que uma empresa oferece um serviço tão cuidadoso e exclusivo com valores justos de mercado aonde podemos receber atendimento dentro da nossa casa um lugar aonde a gente confia, se sente seguro e confortável Além de outras vantagens como não precisar pegar trânsito não pagar estacionamento e não correr riscos eu amo o atendimento domiciliar da MDC vacinas!",
     },
     {
       name: "@drarebecamiotto",
-      avatar: "https://i.pravatar.cc/120?img=44",
-      text: "Nossa experiência foi sensacional. Nada como poder vacinar nossa filha, tão pequena e frágil, no conforto da nossa casa. Sem custo adicional. Todas as funcionárias muito atenciosas.",
+      avatar:
+        "https://mdcvacinas.com.br/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-20-at-09.44.50.jpeg",
+      text: "Nossa experiência com MDC vacinas foi sensacional. Nada como poder vacinar nossa filha, tão pequena e frágil, no conforto da nossa casa, em um local que ela sente mais segurança. O fato de não ter que sair de casa com um recém nascido, pegar trânsito, ficar em sala de espera é o que faz toda diferença. Além disso, sem custo adicional. Todas as funcionárias sempre muito solicitas e competentes, tratando nossa pequena com muito carinho. Nosso muito obrigada a toda equipe do MDC vacinas.",
     },
     {
       name: "@marcellosowka",
-      avatar: "https://i.pravatar.cc/120?img=12",
-      text: "Somos clientes da MDC há muitos anos. Não precisar sair de casa com o bebê já é uma grande vantagem! As meninas são extremamente atenciosas e experientes. Recomendo!",
+      avatar: "https://mdcvacinas.com.br/wp-content/uploads/2022/12/Marcello-Sowka.jpg",
+      text: "Somos clientes da MDC Vacinas há muitos anos, e quando nosso filho nasceu não tivemos dúvidas em chamá-los para vacinar nosso filho em casa. Não precisar sair de casa com o bebê, pegar transito, pagar estacionamento e sair com mochila, carrinho e etc já é uma grande vantagem! Além disso as meninas são extremamente atenciosas e experientes. Fazer a vacina em casa, no quarto do nosso filho com certeza o deixou mais calmo! Recomendo!",
     },
   ];
   return (
@@ -363,21 +366,23 @@ function Testimonials() {
               key={t.name}
               className="rounded-2xl border border-border bg-card p-6 shadow-[var(--shadow-card)]"
             >
-              <div className="flex items-center gap-3">
+              <p className="text-sm leading-relaxed text-foreground">{t.text}</p>
+              <div className="mt-5 flex items-center gap-3">
                 <img
                   src={t.avatar}
                   alt={t.name}
                   loading="lazy"
                   className="h-12 w-12 flex-none rounded-full object-cover ring-2 ring-[var(--teal-soft)]"
                 />
-                <div className="flex items-center gap-1 text-[var(--gold)]">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
-                  ))}
+                <div>
+                  <p className="text-sm font-semibold text-[var(--teal-dark)]">{t.name}</p>
+                  <div className="mt-0.5 flex items-center gap-0.5 text-[var(--gold)]">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-current" />
+                    ))}
+                  </div>
                 </div>
               </div>
-              <p className="mt-4 text-sm leading-relaxed text-foreground">{t.text}</p>
-              <p className="mt-3 text-sm font-semibold text-[var(--teal-dark)]">{t.name}</p>
             </div>
           ))}
         </div>
@@ -393,7 +398,7 @@ function FAQ() {
   const faqs = [
     {
       q: "A MDC atende em quais locais?",
-      a: "Atendemos atualmente em Porto Alegre e grande Porto Alegre sem custo de deslocamento dependendo do raio de distância em quilômetros. Confira no nosso WhatsApp se sua região é de deslocamento gratuito!",
+      a: "Atendemos atualmente em Porto Alegre, grande Porto Alegre e região do Vale dos Sinos sem custo de deslocamento dependendo do raio de distância. Confira no nosso WhatsApp se sua região é atendida!",
     },
     {
       q: "As vacinas são apenas para crianças?",
@@ -408,6 +413,7 @@ function FAQ() {
       a: "Aceitamos cartão de crédito com parcelamento em até 21x, dinheiro e PIX com 15% de desconto.",
     },
   ];
+
   return (
     <section className="mx-auto max-w-4xl px-6 py-20">
       <h2 className="text-center text-3xl font-bold text-[var(--navy)] md:text-4xl">
