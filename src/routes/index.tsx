@@ -178,7 +178,7 @@ function PackageSection() {
     {
       icon: Percent,
       title: "12% de desconto",
-      desc: "Nos pacotes vacinais. Verifique com nossa equipe possíveis personalização.",
+      desc: "Nos pacotes vacinais. Verifique com nossa equipe possíveis personalizações.",
       badge: "NOVO",
     },
     {
