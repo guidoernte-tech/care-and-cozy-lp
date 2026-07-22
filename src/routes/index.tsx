@@ -4,10 +4,11 @@ import heroBaby from "@/assets/hero-baby-home.jpg";
 import logoMDC from "@/assets/logo-mdc.png";
 import clinicFacade from "@/assets/clinic-facade.jpg";
 import {
-  MessageCircle,
-  MapPin,
-  CalendarCheck,
-  Users,
+  MessageCircleHeart,
+  MapPinned,
+  CalendarHeart,
+  Stethoscope,
+  HeartPulse,
   ShieldCheck,
   Percent,
   CreditCard,
