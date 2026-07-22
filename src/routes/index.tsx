@@ -68,7 +68,7 @@ function CTAButton({ className = "" }: { className?: string }) {
       rel="noopener noreferrer"
       className={`inline-flex items-center gap-2 rounded-full bg-[var(--navy)] px-7 py-4 text-sm font-semibold uppercase tracking-wide text-white shadow-[var(--shadow-soft)] transition-transform hover:-translate-y-0.5 hover:bg-[var(--navy-deep)] ${className}`}
     >
-      <MessageCircle className="h-4 w-4" />
+      <MessageCircleHeart className="h-4 w-4" />
       Clique aqui e tire suas dúvidas
     </a>
   );
