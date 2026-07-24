@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import heroBaby from "@/assets/hero-baby-home.jpg";
 import logoMDC from "@/assets/logo-mdc.png";
 import clinicFacade from "@/assets/clinic-facade.jpg";
+import avatarGabriela from "@/assets/avatar-gabriela.jpg";
+import avatarClaus from "@/assets/avatar-claus.jpg";
+import avatarRebeca from "@/assets/avatar-rebeca.jpg";
+import avatarMarcello from "@/assets/avatar-marcello.jpg";
 import {
   MessageCircleHeart,
   MapPinned,
@@ -337,25 +341,22 @@ function Testimonials() {
   const items = [
     {
       name: "@gabrielabordasch",
-      avatar:
-        "https://mdcvacinas.com.br/wp-content/uploads/2022/11/188047733_146355437472106_4760731370720499386_n.jpg",
+      avatar: avatarGabriela,
       text: "Nossa experiência com o serviço de atendimento em casa da MDC Vacinas foi incrível. Somos clientes da MDC desde o nascimento da nossa primeira filha. Fizemos todas as vacinas lá. Adoramos a qualidade do atendimento e o carinho da equipe. Poder fazer as vacinas em casa só agregar ainda mais o que já era excelente. Não precisar pegar trânsito, pagar estacionamento, função de tirar as crianças do carro e tudo mais facilita e muito a vida das famílias. E o melhor de tudo, não tem taxa extra pra isso. Serviço perfeito. Super recomendo!",
     },
     {
       name: "@clausevanessa",
-      avatar:
-        "https://mdcvacinas.com.br/wp-content/uploads/2022/11/273915568_323318373076494_2434003820495313128_n.jpg",
+      avatar: avatarClaus,
       text: "É tão bom saber que uma empresa oferece um serviço tão cuidadoso e exclusivo com valores justos de mercado aonde podemos receber atendimento dentro da nossa casa um lugar aonde a gente confia, se sente seguro e confortável Além de outras vantagens como não precisar pegar trânsito não pagar estacionamento e não correr riscos eu amo o atendimento domiciliar da MDC vacinas!",
     },
     {
       name: "@drarebecamiotto",
-      avatar:
-        "https://mdcvacinas.com.br/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-20-at-09.44.50.jpeg",
+      avatar: avatarRebeca,
       text: "Nossa experiência com MDC vacinas foi sensacional. Nada como poder vacinar nossa filha, tão pequena e frágil, no conforto da nossa casa, em um local que ela sente mais segurança. O fato de não ter que sair de casa com um recém nascido, pegar trânsito, ficar em sala de espera é o que faz toda diferença. Além disso, sem custo adicional. Todas as funcionárias sempre muito solicitas e competentes, tratando nossa pequena com muito carinho. Nosso muito obrigada a toda equipe do MDC vacinas.",
     },
     {
       name: "@marcellosowka",
-      avatar: "https://mdcvacinas.com.br/wp-content/uploads/2022/12/Marcello-Sowka.jpg",
+      avatar: avatarMarcello,
       text: "Somos clientes da MDC Vacinas há muitos anos, e quando nosso filho nasceu não tivemos dúvidas em chamá-los para vacinar nosso filho em casa. Não precisar sair de casa com o bebê, pegar transito, pagar estacionamento e sair com mochila, carrinho e etc já é uma grande vantagem! Além disso as meninas são extremamente atenciosas e experientes. Fazer a vacina em casa, no quarto do nosso filho com certeza o deixou mais calmo! Recomendo!",
     },
   ];
