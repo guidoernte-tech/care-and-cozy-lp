@@ -3,14 +3,10 @@ import { useEffect, useState } from "react";
 import heroBaby from "@/assets/hero-baby-home.jpg";
 import logoMDC from "@/assets/logo-mdc.png";
 import clinicFacade from "@/assets/clinic-facade.jpg";
-const avatarGabriela =
-  "https://mdcvacinas.com.br/wp-content/uploads/2022/11/188047733_146355437472106_4760731370720499386_n.jpg";
-const avatarClaus =
-  "https://mdcvacinas.com.br/wp-content/uploads/2022/11/273915568_323318373076494_2434003820495313128_n.jpg";
-const avatarRebeca =
-  "https://mdcvacinas.com.br/wp-content/uploads/2022/12/WhatsApp-Image-2022-12-20-at-09.44.50.jpeg";
-const avatarMarcello =
-  "https://mdcvacinas.com.br/wp-content/uploads/2022/12/Marcello-Sowka.jpg";
+import avatarGabriela from "@/assets/testimonial-gabriela.png";
+import avatarClaus from "@/assets/testimonial-claus.png";
+import avatarRebeca from "@/assets/testimonial-rebeca.png";
+import avatarMarcello from "@/assets/testimonial-marcello.png";
 import {
   MessageCircleHeart,
   MapPinned,
